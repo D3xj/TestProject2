@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using TestProject2.WebDriver;
 
 namespace TestProject2.WebObject
