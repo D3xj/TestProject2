@@ -16,7 +16,7 @@ namespace TestProject2.WebDriver
 
         public static string ElementTimeout => GetEnvironmentVar("ElementTimeout", "30");
         public static string Browser => GetEnvironmentVar("Browser", "Chrome");
-        public static string StartUrl => GetEnvironmentVar("StartUrl", "");
+        public static string StartUrl => GetEnvironmentVar("StartUrl", "https://mail.rambler.ru/?utm_source=head&utm_campaign=self_promo&utm_medium=header&utm_content=mail");
 
     }
 }
