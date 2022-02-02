@@ -23,9 +23,10 @@ namespace TestProject2.WebDriver
             {
                 case BrowserType.Chrome:
                     {
-                        var service = ChromeDriverService.CreateDefaultService();
+                        var service = ChromeDriverService.CreateDefaultService(@"C:\Users\pc\Desktop\TestProject2\TestProject2\bin\Debug\net6.0");
                         var option = new ChromeOptions();
                         option.AddArgument("disable-infobars");
+                        option.AddArgument("--disable-notifications");
                         driver = new ChromeDriver(service, option, TimeSpan.FromSeconds(timeOutSec));
                         break;
                     }
