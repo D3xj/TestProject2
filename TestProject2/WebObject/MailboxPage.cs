@@ -9,7 +9,7 @@ namespace TestProject2.WebObject
 {
     public class MailboxPage : BasePage
     {
-        private readonly static By _mailboxLbl = By.XPath("//span[@class = 'rui-Button-content']"); //Исправить
+        private readonly static By _mailboxLbl = By.XPath("//span[@class = 'ButtonWithIcon-icon-1Q ButtonWithIcon-iconLeft-2c ButtonWithIcon-iconBig-2w']");
 
         private readonly BaseElement _writeEmailButton = new BaseElement(By.XPath
             ("//span[@class = 'rui-Button-content']"));
