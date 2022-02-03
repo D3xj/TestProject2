@@ -10,7 +10,7 @@ namespace TestProject2.WebObject
 {
     public class DraughtPage : BasePage
     {
-        private readonly static By _draughtLbl = By.XPath("//button[@class = 'rui-Button-button rui-Button-type-primary rui-Button-size-small rui-Button-iconPosition-left']"); //Исправить
+        private readonly static By _draughtLbl = By.XPath("//p[@class = 'Compose-heading-FK']");
 
         private readonly BaseElement _toWhom = new BaseElement(By.XPath("//input[@id = 'receivers']"));
         private readonly BaseElement _subject = new BaseElement(By.XPath("//input[@id = 'subject']"));
