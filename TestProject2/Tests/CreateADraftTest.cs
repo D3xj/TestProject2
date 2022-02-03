@@ -13,7 +13,6 @@ namespace TestProject2.Tests
     [TestClass]
     public class CreateADraftTest : BaseTest
     {
-        private HomePage _homePage;
         private SignInPage _signInPage;
         private MailboxPage _mailboxPage;
         private DraughtPage _daughtPage;
@@ -27,8 +26,6 @@ namespace TestProject2.Tests
         [TestMethod]
         public void CreateADraft()
         {
-            //_homePage = new HomePage();
-            //_homePage.GoToSignIn();
             _signInPage = new SignInPage();
             _signInPage.EnterYourDataToFields(email, password);
             _signInPage.Submit();
