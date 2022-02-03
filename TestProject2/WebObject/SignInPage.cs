@@ -11,7 +11,8 @@ namespace TestProject2.WebObject
     public class SignInPage : BasePage
     {
 
-        private static readonly By _signInLbl = By.XPath("//iframe[@src = 'https://id.rambler.ru/login-20/login?utm_source=head&utm_campaign=self_promo&utm_medium=header&utm_content=mail&rname=mail&theme=&session=false&back=https%3A%2F%2Fmail.rambler.ru%2F%3Futm_source%3Dhead%26utm_campaign%3Dself_promo%26utm_medium%3Dheader%26utm_content%3Dmail&param=embed&iframeOrigin=https%3A%2F%2Fmail.rambler.ru']");
+        private static readonly By _signInLbl = By.XPath
+            ("//iframe[@src = 'https://id.rambler.ru/login-20/login?utm_source=head&utm_campaign=self_promo&utm_medium=header&utm_content=mail&rname=mail&theme=&session=false&back=https%3A%2F%2Fmail.rambler.ru%2F%3Futm_source%3Dhead%26utm_campaign%3Dself_promo%26utm_medium%3Dheader%26utm_content%3Dmail&param=embed&iframeOrigin=https%3A%2F%2Fmail.rambler.ru']");
 
         private readonly BaseElement _searchIFrame = new BaseElement(By.XPath
             ("//iframe[@src = 'https://id.rambler.ru/login-20/login?utm_source=head&utm_campaign=self_promo&utm_medium=header&utm_content=mail&rname=mail&theme=&session=false&back=https%3A%2F%2Fmail.rambler.ru%2F%3Futm_source%3Dhead%26utm_campaign%3Dself_promo%26utm_medium%3Dheader%26utm_content%3Dmail&param=embed&iframeOrigin=https%3A%2F%2Fmail.rambler.ru']"));
