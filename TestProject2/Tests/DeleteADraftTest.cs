@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,11 @@ namespace TestProject2.Tests
         private MailboxPage _mailboxPage;
         private DraughtListPage _daughtListPage;
 
-        private const string email = "testaccount74@rambler.ru";
-        private const string password = "testAccount74";
-
         [TestMethod]
         public void DeleteADraft()
         {
             _signInPage = new SignInPage();
-            _signInPage.EnterYourDataToFields(email, password);
+            _signInPage.EnterYourDataToFields(ConfigurationManager.AppSettings["email"], ConfigurationManager.AppSettings["password"]);
             _signInPage.Submit();
             _mailboxPage = new MailboxPage();
             _mailboxPage.GoToDraughtList();
