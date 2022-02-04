@@ -39,6 +39,7 @@ namespace TestProject2.WebObject
 
         public IWebElement GetElement()
         {
+            WaitForIsVisible();
             try
             {
                 _element = Browser.GetDriver().FindElement(_locator);
