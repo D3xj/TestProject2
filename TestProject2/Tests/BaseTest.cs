@@ -10,7 +10,7 @@ namespace TestProject2.Tests
 {
     public class BaseTest
     {
-        protected static Browser browser = Browser.Instance;
+        protected static Browser browser;
 
         [TestInitialize]
         public void SetupTest()
