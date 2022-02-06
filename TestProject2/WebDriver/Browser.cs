@@ -43,7 +43,7 @@ namespace TestProject2.WebDriver
             _driver.Navigate().GoToUrl(URL);    
         }
 
-        public static IWebDriver GetDriver()
+        public static IWebDriver ObtainDriver()
         {
             return _driver;
         }
