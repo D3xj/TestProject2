@@ -15,7 +15,7 @@ namespace TestProject2.WebObject
 {
     public class BaseElement : IWebElement
     {
-        private IWebDriver _driver = Browser.GetDriver();
+        private IWebDriver _driver = Browser.ObtainDriver();
         protected string _name;
         protected By _locator;
         protected IWebElement _element;
@@ -42,7 +42,7 @@ namespace TestProject2.WebObject
             WaitForIsVisible();
             try
             {
-                _element = Browser.GetDriver().FindElement(_locator);
+                _element = Browser.ObtainDriver().FindElement(_locator);
             }
             catch (Exception)
             {
@@ -90,7 +90,7 @@ namespace TestProject2.WebObject
         public void SendKeys(string text)
         {
             WaitForIsVisible();
-            Browser.GetDriver().FindElement(_locator).SendKeys(text);
+            Browser.ObtainDriver().FindElement(_locator).SendKeys(text);
         }
 
         public void Submit()
@@ -101,13 +101,13 @@ namespace TestProject2.WebObject
         public void Click()
         {
             WaitForIsVisible();
-            Browser.GetDriver().FindElement(_locator).Click();
+            Browser.ObtainDriver().FindElement(_locator).Click();
         }
 
         public void JSClick()
         {
             this.WaitForIsVisible();
-            IJavaScriptExecutor executor = (IJavaScriptExecutor)Browser.GetDriver();
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)Browser.ObtainDriver();
             executor.ExecuteScript("arguments[0].click();", this.GetElement());
         }
 

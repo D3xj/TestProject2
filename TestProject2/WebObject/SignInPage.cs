@@ -27,7 +27,7 @@ namespace TestProject2.WebObject
 
         public void EnterYourDataToFields(string email, string password)
         {
-            Browser.GetDriver().SwitchTo().Frame(_searchIFrame.GetElement());
+            Browser.ObtainDriver().SwitchTo().Frame(_searchIFrame.GetElement());
             _inputEmail.SendKeys(email);
             _inputPassword.SendKeys(password);
         }

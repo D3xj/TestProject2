@@ -26,9 +26,9 @@ namespace TestProject2.WebObject
         {
             _toWhom.SendKeys(toWhom);
             _subject.SendKeys(subject);
-            Browser.GetDriver().SwitchTo().Frame(_searchIFrame.GetElement());
+            Browser.ObtainDriver().SwitchTo().Frame(_searchIFrame.GetElement());
             _textOfEmail.SendKeys(email);
-            Browser.GetDriver().SwitchTo().DefaultContent();
+            Browser.ObtainDriver().SwitchTo().DefaultContent();
         }
 
         public void SaveDraught()
