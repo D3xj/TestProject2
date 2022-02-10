@@ -12,6 +12,8 @@ namespace TestProject2.Tests
     {
         protected static Browser browser;
 
+        public TestContext TestContext { get; set; }
+
         [TestInitialize]
         public void SetupTest()
         {

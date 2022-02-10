@@ -18,10 +18,12 @@ namespace TestProject2.Tests
         private MailboxPage _mailboxPage;
         private DraughtPage _daughtPage;
 
-        private const string toWhom = "ishhf31@rambler.ru";
-        private const string subject = "Test subject";
-        private const string message = "Test message";
+        //private const string toWhom = "ishhf31@rambler.ru";
+        //private const string subject = "Test subject";
+        //private const string message = "Test message";
 
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "C:\\Users\\pc\\Desktop\\TestProject2\\TestProject2\\Resources\\TestData.csv", "TestData#csv",
+            DataAccessMethod.Sequential)]
         [TestMethod]
         public void CreateADraft()
         {
@@ -31,6 +33,11 @@ namespace TestProject2.Tests
             _mailboxPage = new MailboxPage();
             _mailboxPage.WriteAnEmail();
             _daughtPage = new DraughtPage();
+
+            var toWhom = TestContext.DataRow["toWhom"].ToString();
+            var subject = TestContext.DataRow["subject"].ToString();
+            var message = TestContext.DataRow["message"].ToString();
+
             _daughtPage.InputData(toWhom, subject, message);
             _daughtPage.SaveDraught();
             _daughtPage.Logout();
