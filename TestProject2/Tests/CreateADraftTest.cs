@@ -11,6 +11,7 @@ using TestProject2.WebObject;
 
 namespace TestProject2.Tests
 {
+    [DeploymentItem(@"Resources")]
     [TestClass]
     public class CreateADraftTest : BaseTest
     {
@@ -21,8 +22,7 @@ namespace TestProject2.Tests
         //private const string toWhom = "ishhf31@rambler.ru";
         //private const string subject = "Test subject";
         //private const string message = "Test message";
-
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "C:\\Users\\pc\\Desktop\\TestProject2\\TestProject2\\Resources\\TestData.csv", "TestData#csv",
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv", "TestData#csv",
             DataAccessMethod.Sequential)]
         [TestMethod]
         public void CreateADraft()
@@ -34,9 +34,9 @@ namespace TestProject2.Tests
             _mailboxPage.WriteAnEmail();
             _daughtPage = new DraughtPage();
 
-            var toWhom = TestContext.DataRow["toWhom"].ToString();
-            var subject = TestContext.DataRow["subject"].ToString();
-            var message = TestContext.DataRow["message"].ToString();
+            var toWhom = TestContext.DataRow["Send"].ToString();
+            var subject = TestContext.DataRow["Subject"].ToString();
+            var message = TestContext.DataRow["Message"].ToString();
 
             _daughtPage.InputData(toWhom, subject, message);
             _daughtPage.SaveDraught();
