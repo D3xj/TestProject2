@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestProject2.Entities;
 using TestProject2.WebDriver;
 
 namespace TestProject2.WebObject
@@ -25,11 +26,11 @@ namespace TestProject2.WebObject
 
         public SignInPage() : base(_signInLbl, "Sign In page"){}
 
-        public void EnterYourDataToFields(string email, string password)
+        public void EnterYourDataToFields(User user)
         {
             Browser.ObtainDriver().SwitchTo().Frame(_searchIFrame.GetElement());
-            _inputEmail.SendKeys(email);
-            _inputPassword.SendKeys(password);
+            _inputEmail.SendKeys(user.DataUser[0]);
+            _inputPassword.SendKeys(user.DataUser[1]);
         }
 
         public void Submit()

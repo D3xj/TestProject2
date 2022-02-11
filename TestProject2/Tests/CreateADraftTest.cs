@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestProject2.Entities;
 using TestProject2.WebObject;
 
 namespace TestProject2.Tests
@@ -28,7 +29,10 @@ namespace TestProject2.Tests
         public void CreateADraft()
         {
             _signInPage = new SignInPage();
-            _signInPage.EnterYourDataToFields(ConfigurationManager.AppSettings["email"], ConfigurationManager.AppSettings["password"]);
+            var email = ConfigurationManager.AppSettings["email"];
+            var password = ConfigurationManager.AppSettings["password"];
+            var user = new User(email, password);
+            _signInPage.EnterYourDataToFields(user);
             _signInPage.Submit();
             _mailboxPage = new MailboxPage();
             _mailboxPage.WriteAnEmail();
