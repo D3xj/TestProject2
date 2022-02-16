@@ -10,6 +10,7 @@ using TestProject2.WebObject;
 
 namespace TestProject2.Tests
 {
+    [DeploymentItem(@"Resources")]
     [TestClass]
     public class DeleteADraftTest : BaseTest
     {
@@ -17,6 +18,8 @@ namespace TestProject2.Tests
         private MailboxPage _mailboxPage;
         private DraughtListPage _daughtListPage;
 
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv", "TestData#csv",
+            DataAccessMethod.Sequential)]
         [TestMethod]
         public void DeleteADraft()
         {
@@ -29,7 +32,8 @@ namespace TestProject2.Tests
             _mailboxPage = new MailboxPage();
             _mailboxPage.GoToDraughtList();
             _daughtListPage = new DraughtListPage();
-            _daughtListPage.SelectMessage();
+            var subject = TestContext.DataRow["Subject"].ToString();
+            _daughtListPage.SelectMessage(subject);
             _daughtListPage.DeleteMessage();
             _daughtListPage.Logout();
         }

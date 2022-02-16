@@ -18,9 +18,10 @@ namespace TestProject2.WebObject
 
         public DraughtListPage() : base(_draughtListLbl, "Draft List Page"){}
 
-        public void SelectMessage()
+        public void SelectMessage(string subject)
         {
-            _toBeDeletedMessage.Click();
+            BaseElement messageSubject = new BaseElement(By.XPath("//span[@class = 'ListItem-subject-2M'][text() = '" + subject + "']/../../../div[@class='ListItem-checkboxTouchZone-2K']/span[@class='Checkbox-root-vD']"));
+            messageSubject.Click();
         }
 
         public void DeleteMessage()
