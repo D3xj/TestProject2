@@ -146,7 +146,20 @@ namespace TestProject2.WebObject
         public bool Selected { get; }
         public Point Location { get; }
         public Size Size { get; }
-        public bool Displayed { get; }  
-
+        public bool Displayed
+        {
+            get
+            {
+                try
+                {
+                    Browser.ObtainDriver().FindElement(_locator);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
