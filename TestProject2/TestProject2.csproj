@@ -9,16 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\CheckIncoming.csv" />
     <None Remove="Resources\TestData.csv" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\CheckIncoming.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\TestData.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
