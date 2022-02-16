@@ -19,6 +19,8 @@ namespace TestProject2.WebObject
         private readonly BaseElement _saveDraught = new BaseElement(By.XPath("//span[text() = 'Сохранить черновик']"));
         private readonly BaseElement _profileButton = new BaseElement(By.XPath("//button[@class = 'rui__2FTrL']"));
         private readonly BaseElement _logoutButton = new BaseElement(By.XPath("//button[@class='rui__1iR9f']"));
+        private readonly BaseElement _sendButton = new BaseElement(By.XPath("//button[@class='rui-Button-button rui-Button-type-primary rui-Button-size-small rui-Button-iconPosition-left']"));
+        private readonly BaseElement _mailboxPage = new BaseElement(By.XPath("//div[@class = 'Sidebar-content-1p']//span[text()='Входящие']"));
 
         public DraughtPage() : base(_draughtLbl, "Draft Page"){}
 
@@ -30,10 +32,28 @@ namespace TestProject2.WebObject
             _textOfEmail.SendKeys(email);
             Browser.ObtainDriver().SwitchTo().DefaultContent();
         }
+        public void InputDataWithNum(string toWhom, string subject, string email, int num)
+        {
+            _toWhom.SendKeys(toWhom);
+            _subject.SendKeys(subject + num);
+            Browser.ObtainDriver().SwitchTo().Frame(_searchIFrame.GetElement());
+            _textOfEmail.SendKeys(email);
+            Browser.ObtainDriver().SwitchTo().DefaultContent();
+        }
 
         public void SaveDraught()
         {
             _saveDraught.Click();
+        }
+
+        public void SendAMessage()
+        {
+            _sendButton.Click();
+        }
+
+        public void GoToMailboxPage()
+        {
+            _mailboxPage.Click();
         }
 
         public void Logout()
